@@ -31,7 +31,7 @@ public class MemberProviderController {
     @GetMapping("/get/{id}")
     public BaseResponse<Member> getMemberById(@PathVariable("id") Integer id) {
         Member member = memberService.getById(id);
-        log.info("10000 ==> 查询结果：{}", member);
+        log.info("10002 ==> 查询结果：{}", member);
         return ResultUtil.success(member);
     }
 

@@ -1,0 +1,11 @@
+server:
+  port: 9002
+eureka:
+  instance:
+    hostname: eureka9002.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      # 注册进 9001
+      defaultZone: http://eureka9001.com:9001/eureka/
