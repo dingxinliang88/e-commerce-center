@@ -1,5 +1,7 @@
 package com.juzi.springcloud.common;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -35,7 +37,13 @@ public class BaseResponse<T> implements Serializable {
      */
     private String description;
 
-    public BaseResponse(int code, T data, String message, String description) {
+    @JsonCreator
+    public BaseResponse(
+            @JsonProperty("code") int code,
+            @JsonProperty("data") T data,
+            @JsonProperty("message") String message,
+            @JsonProperty("description") String description
+    ) {
         this.code = code;
         this.data = data;
         this.message = message;

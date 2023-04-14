@@ -15,8 +15,8 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @RestController
-@RequestMapping("/member")
-public class MemberController {
+@RequestMapping("/member/provider")
+public class MemberProviderController {
 
     @Resource
     private MemberService memberService;
