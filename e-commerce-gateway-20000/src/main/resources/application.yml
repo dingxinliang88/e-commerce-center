@@ -1,0 +1,25 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: e-commerce-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: member-service-route01
+          uri: http://localhost:10000
+          predicates:
+            - Path=/member/provider/get/**
+        - id: member-service-route02
+          uri: http://localhost:10000
+          predicates:
+            - Path=/member/provider/save
+eureka:
+  instance:
+    hostname: e-commerce-gateway
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka9001.com:9001/eureka
