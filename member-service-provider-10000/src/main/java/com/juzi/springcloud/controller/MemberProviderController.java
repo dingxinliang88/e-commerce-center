@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author codejuzi
@@ -32,7 +33,7 @@ public class MemberProviderController {
     public BaseResponse<Member> getMemberById(@PathVariable("id") Integer id) {
         Member member = memberService.getById(id);
         log.info("10000 ==> 查询结果：{}", member);
-        return ResultUtil.success(member);
+        return ResultUtil.success(member, "10000 ==> 查询");
     }
 
 }

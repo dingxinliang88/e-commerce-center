@@ -5,16 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author codejuzi
  * @CreateTime 2023/4/14
  */
 @EnableEurekaClient
-@EnableDiscoveryClient
+@EnableFeignClients
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class MemberConsumerApplication {
+public class MemberConsumerOpenFeignApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MemberConsumerApplication.class, args);
+        SpringApplication.run(MemberConsumerOpenFeignApplication.class, args);
     }
 }

@@ -24,10 +24,22 @@ public class ResultUtil {
     }
 
     /**
+     * 成功
+     *
+     * @param data    成功后的响应结果
+     * @param message 成功消息
+     * @param <T>     泛型
+     * @return BaseResponse
+     */
+    public static <T> BaseResponse<T> success(T data, String message) {
+        return new BaseResponse<>(ErrorCode.SUCCESS.getCode(), data, message);
+    }
+
+    /**
      * 失败
      *
-     * @param code code
-     * @param message message
+     * @param code        code
+     * @param message     message
      * @param description desc
      * @return BasesResponse
      */
@@ -38,8 +50,8 @@ public class ResultUtil {
     /**
      * 失败
      *
-     * @param errorCode error code
-     * @param message message
+     * @param errorCode   error code
+     * @param message     message
      * @param description desc
      * @return BasesResponse
      */
