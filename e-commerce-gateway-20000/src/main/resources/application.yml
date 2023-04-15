@@ -6,15 +6,35 @@ spring:
     name: e-commerce-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
         - id: member-service-route01
-          uri: http://localhost:10000
+#          uri: http://localhost:10000
+          uri: lb://member-service-provider
           predicates:
             - Path=/member/provider/get/**
+#            - After=2023-04-15T17:42:47.789+08:00[Asia/Shanghai]
+#            - Before=2023-04-15T19:42:47.789+08:00[Asia/Shanghai]
+#            - Cookie=chocolate, ch.p
+#            - Header=X-Request-Id, \d+
+#            - Host=**.codejuzi.icu,**.codejuzi.top
+#            - Method=GET
+#            - Query=email, [\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+
+#            - RemoteAddr=127.0.0.1
+#            - Weight=group1, 8
+#        - id: member-service-route03
+#            uri: lb://member-service-provider
+#            predicates:
+#              - Path=/member/provider/get/**
+#              - Weight=group1, 2
         - id: member-service-route02
-          uri: http://localhost:10000
+#          uri: http://localhost:10000
+          uri: lb://member-service-provider
           predicates:
             - Path=/member/provider/save
+#            - Between=2023-04-15T17:42:47.789+08:00[Asia/Shanghai], 2023-04-15T19:42:47.789+08:00[Asia/Shanghai]
 eureka:
   instance:
     hostname: e-commerce-gateway
@@ -22,4 +42,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka9001.com:9001/eureka
+      defaultZone: http://eureka9001.com:9001/eureka, http://eureka9002.com:9002/eureka
