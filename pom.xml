@@ -19,6 +19,7 @@
         <module>member-service-nacos-provider-10004</module>
         <module>member-service-nacos-provider-10006</module>
         <module>member-service-consumer-nacos-80</module>
+        <module>e-commerce-nacos-config-client-8888</module>
     </modules>
     <packaging>pom</packaging>
 
