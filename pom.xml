@@ -16,6 +16,9 @@
         <module>member-service-provider-10002</module>
         <module>member-service-consumer-openfegin-80</module>
         <module>e-commerce-gateway-20000</module>
+        <module>member-service-nacos-provider-10004</module>
+        <module>member-service-nacos-provider-10006</module>
+        <module>member-service-consumer-nacos-80</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -55,7 +58,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2021.0.4.0</version>
+                <version>2.2.9.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
